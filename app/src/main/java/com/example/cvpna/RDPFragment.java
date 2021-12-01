@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class RDPClientFragment extends Fragment {
+public class RDPFragment extends Fragment {
 
-    public RDPClientFragment() {
+    public RDPFragment() {
     }
 
-    public static VPNClientFragment newInstance() {
-        return new VPNClientFragment();
+    public static VPNFragment newInstance() {
+        return new VPNFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_rdpclient, container, false);
+        return inflater.inflate(R.layout.fragment_rdp, container, false);
     }
 }

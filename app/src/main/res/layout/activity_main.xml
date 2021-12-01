@@ -8,11 +8,22 @@
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/fl_content"
+        android:id="@+id/middle_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
+    <ImageView
+        android:id="@+id/vpn_ads"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_gravity="center"
+        android:background="@color/design_default_color_primary_dark"
+        android:contentDescription="@string/vpn_ads"
+        android:focusable="true"
+        android:paddingEnd="5dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingStart="5dip" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"

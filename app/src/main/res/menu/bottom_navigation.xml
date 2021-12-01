@@ -2,16 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/navigation_vpnclient"
-        android:icon="@drawable/ic_favorite"
+        android:id="@+id/navigation_vpn"
         app:materialIcon="clipboard_arrow_down"
         android:title="@string/tab1" />
     <item
         android:id="@+id/navigation_filemanager"
-        android:icon="@drawable/ic_places"
         android:title="@string/tab2" />
     <item
-        android:id="@+id/navigation_rdpclient"
-        android:icon="@drawable/ic_news"
+        android:id="@+id/navigation_rdp"
         android:title="@string/tab3" />
+    <!-- Temporary disabled menu
+    <item
+        android:id="@+id/navigation_email"
+        android:title="@string/tab4" />
+    <item
+        android:id="@+id/navigation_option"
+        android:title="@string/tab5" />
+        -->
 </menu>

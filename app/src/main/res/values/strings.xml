@@ -1,9 +1,42 @@
 <resources>
+    <!-- Top navigation Bar -->
     <string name="app_name">cvpna</string>
+    <!-- Top navigation Bar End -->
     <string name="title_home">Home</string>
+    <string name="vpn_ads">ADS</string>
+    <!-- VPN Options Menu -->
+    <string name="vpn_add">Add</string>
+    <string name="vpn_edit">Edit</string>
+    <string name="vpn_remove">Remove</string>
+    <string name="vpn_dublicate">Dublicate</string>
+    <!-- VPN Options Bar Menu-->
+
+    <!-- VPN Profile Fields -->
+    <string name="vpn_title">VPN Name</string>
+    <string name="vpn_type">VPN Type</string>
+    <string name="vpn_username">Username</string>
+    <string name="vpn_userpass">User Password</string>
+    <string name="vpn_showpass">Show Password</string>
+    <string name="vpn_savepass">Save Password</string>
+    <string name="vpn_servip">Server Name/IP</string>
+    <string name="vpn_servgroupid">Group ID</string>
+    <string name="vpn_servgrouppass">Group Password</string>
+    <string name="vpn_autorecon">Auto Reconnect</string>
+    <!-- VPN Profile Fields End-->
+
+    <!-- VPN State -->
+    <string name="vpn_state">State</string>
+    <string name="vpn_sent">Sent</string>
+    <string name="vpn_received">Received</string>
+    <string name="vpn_current_title">Title</string>
+    <string name="vpn_current_state">Not connected!</string>
+    <!-- VPN State End-->
+
+    <!-- Bottom Navigation Bar -->
     <string name="tab1">VPN</string>
-    <string name="tab2">File Manager</string>
+    <string name="tab2">Files</string>
     <string name="tab3">RDP</string>
-    <string name="tab4">VPN</string>
-    <string name="tab5">VPN</string>
+    <string name="tab4">Email</string>
+    <string name="tab5">Option</string>
+    <!-- Bottom Navigation Bar Eng -->
 </resources>

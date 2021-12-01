@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class VPNClientFragment extends Fragment {
+public class VPNFragment extends Fragment {
 
-    public VPNClientFragment() {
+    public VPNFragment() {
     }
 
-    public static VPNClientFragment newInstance() {
-        return new VPNClientFragment();
+    public static VPNFragment newInstance() {
+        return new VPNFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_vpnclient, container, false);
+        return inflater.inflate(R.layout.fragment_vpn, container, false);
     }
 }

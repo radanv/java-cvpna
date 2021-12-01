@@ -18,14 +18,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_vpnclient:
-                    loadFragment(VPNClientFragment.newInstance());
+                case R.id.navigation_vpn:
+                    loadFragment(VPNFragment.newInstance());
                     return true;
                 case R.id.navigation_filemanager:
                     loadFragment(FileManagerFragment.newInstance());
                     return true;
-                case R.id.navigation_rdpclient:
-                    loadFragment(RDPClientFragment.newInstance());
+                case R.id.navigation_rdp:
+                    loadFragment(RDPFragment.newInstance());
+                    return true;
+                case R.id.navigation_email:
+                    loadFragment(EmailFragment.newInstance());
+                    return true;
+                case R.id.navigation_option:
+                    loadFragment(OptionFragment.newInstance());
                     return true;
             }
             return false;
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fl_content, fragment);
+        ft.replace(R.id.middle_content, fragment);
         ft.commit();
     }
 
