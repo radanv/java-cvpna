@@ -1,6 +1,5 @@
 package com.example.cvpna;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,15 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link VPNFragment#newInstance} factory method to
+ * Use the {@link ConnectionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VPNFragment extends Fragment {
+public class ConnectionFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,10 +24,7 @@ public class VPNFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button tapButton;
-    ImageView logoImage;
-
-    public VPNFragment() {
+    public ConnectionFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +34,11 @@ public class VPNFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VPNFragment.
+     * @return A new instance of fragment ConnectionFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VPNFragment newInstance(String param1, String param2) {
-        VPNFragment fragment = new VPNFragment();
+    public static ConnectionFragment newInstance(String param1, String param2) {
+        ConnectionFragment fragment = new ConnectionFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,25 +53,12 @@ public class VPNFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_v_p_n, container, false);
-
-        tapButton = view.findViewById(R.id.vpnTapButton);
-
-        tapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tapButton.setText("Tap to close");
-            }
-        });
-
-        return view;
+        return inflater.inflate(R.layout.fragment_connection, container, false);
     }
 }
