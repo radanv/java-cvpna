@@ -9,10 +9,11 @@
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_connection.xml" value="0.4" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_f_m.xml" value="0.22760416666666666" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_list.xml" value="0.1" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_mail.xml" value="0.22760416666666666" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_r_d_p.xml" value="0.21197916666666666" />
-        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_v_p_n.xml" value="0.264" />
-        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/vpn_item.xml" value="0.536" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_v_p_n.xml" value="0.1" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/vpn_item.xml" value="0.72" />
       </map>
     </option>
   </component>

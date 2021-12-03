@@ -1,12 +1,16 @@
 package com.example.cvpna;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
@@ -22,31 +26,48 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.vpn_item, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        VPN currentVPN = list[position];
+
+        // text bindings
+        holder.getNameTextView().setText(currentVPN.getName());
+        holder.getAddressTextView().setText(currentVPN.getIp());
+        holder.getUserNameTextView().setText(currentVPN.getUserName());
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
-        TextView address;
-        Button connect;
-        Button settings;
+        TextView nameTextView;
+        TextView addressTextView;
+        TextView userNameTextView;
+        Button connectButton;
+        Button settingsButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            connectButton = itemView.findViewById(R.id.connectButton);
+            addressTextView = itemView.findViewById(R.id.IPTextView);
+            nameTextView = itemView.findViewById(R.id.VPNTextView);
+            settingsButton = itemView.findViewById(R.id.settingsButton);
+            userNameTextView = itemView.findViewById(R.id.userNameTextView);
+
+
+
             //connection click
-            connect.setOnClickListener(new View.OnClickListener() {
+            connectButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -55,7 +76,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
 
             //settings click
-            settings.setOnClickListener(new View.OnClickListener() {
+            settingsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -63,34 +84,44 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             });
         }
 
-        public void setAddress(TextView address) {
-            this.address = address;
+        public void setAddressTextView(TextView addressTextView) {
+            this.addressTextView = addressTextView;
         }
 
-        public void setConnect(Button connect) {
-            this.connect = connect;
+        public void setConnectButton(Button connectButton) {
+            this.connectButton = connectButton;
         }
 
-        public void setName(TextView name) {
-            this.name = name;
+        public void setNameTextView(TextView nameTextView) {
+            this.nameTextView = nameTextView;
         }
 
-        public void setSettings(Button settings) {
-            this.settings = settings;
+        public void setSettingsButton(Button settingsButton) {
+            this.settingsButton = settingsButton;
         }
 
-        public Button getConnect() {
-            return connect;
+        public Button getConnectButton() {
+            return connectButton;
         }
 
-        public Button getSettings() {
-            return settings;
+        public Button getSettingsButton() {
+            return settingsButton;
         }
 
-        public TextView getAddress() {
-            return address;
+        public TextView getAddressTextView() {
+            return addressTextView;
         }
 
+        public TextView getNameTextView() {
+            return nameTextView;
+        }
 
+        public void setUserNameTextView(TextView userNameTextView) {
+            this.userNameTextView = userNameTextView;
+        }
+
+        public TextView getUserNameTextView() {
+            return userNameTextView;
+        }
     }
 }

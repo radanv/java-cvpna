@@ -1,22 +1,21 @@
 package com.example.cvpna;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link VPNFragment#newInstance} factory method to
+ * Use the {@link ListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VPNFragment extends Fragment {
+public class ListFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,11 +26,12 @@ public class VPNFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    Button tapButton;
-    ImageView logoImage;
 
+    VPN[] vpnList;
+    RecyclerView listRecyclerView;
+    CustomAdapter customAdapter;
 
-    public VPNFragment() {
+    public ListFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +41,11 @@ public class VPNFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VPNFragment.
+     * @return A new instance of fragment ListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VPNFragment newInstance(String param1, String param2) {
-        VPNFragment fragment = new VPNFragment();
+    public static ListFragment newInstance(String param1, String param2) {
+        ListFragment fragment = new ListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,27 +60,28 @@ public class VPNFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_v_p_n, container, false);
 
-        tapButton = view.findViewById(R.id.vpnTapButton);
+        View view =  inflater.inflate(R.layout.fragment_list, container, false);
 
-        tapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tapButton.setText("Tap to close");
-            }
-        });
+        listRecyclerView = view.findViewById(R.id.vpnListRecyclerView);
 
-        getFragmentManager().beginTransaction().replace(R.id.connectionListLayout, new ListFragment()).addToBackStack(null).commit();
-        getFragmentManager().beginTransaction().replace(R.id.currentConnectionLayout, new CurrentConnectionFragment()).addToBackStack(null).commit();
+        vpnList = new VPN[]{
+                new VPN("VPN 1", "0.0.0.0"),
+                new VPN("VPN 2", "0.0.0.0"),
+                new VPN("VPN 3", "0.0.0.0"),
+                new VPN("VPN 4", "0.0.0.0"),
+        };
+
+        if (vpnList != null){
+            customAdapter = new CustomAdapter(view.getContext(), vpnList);
+            listRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+            listRecyclerView.setAdapter(customAdapter);
+        }
 
 
 

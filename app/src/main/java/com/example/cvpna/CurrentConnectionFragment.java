@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ConnectionFragment#newInstance} factory method to
+ * Use the {@link CurrentConnectionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ConnectionFragment extends Fragment {
+public class CurrentConnectionFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class ConnectionFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ConnectionFragment() {
+    public CurrentConnectionFragment() {
         // Required empty public constructor
     }
 
@@ -37,8 +37,8 @@ public class ConnectionFragment extends Fragment {
      * @return A new instance of fragment ConnectionFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ConnectionFragment newInstance(String param1, String param2) {
-        ConnectionFragment fragment = new ConnectionFragment();
+    public static CurrentConnectionFragment newInstance(String param1, String param2) {
+        CurrentConnectionFragment fragment = new CurrentConnectionFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
