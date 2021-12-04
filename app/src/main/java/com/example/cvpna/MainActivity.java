@@ -1,56 +1,96 @@
 package com.example.cvpna;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    TabLayout mainTabLayout;
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_vpn:
-                    loadFragment(VPNFragment.newInstance());
-                    return true;
-                case R.id.navigation_filemanager:
-                    loadFragment(FileManagerFragment.newInstance());
-                    return true;
-                case R.id.navigation_rdp:
-                    loadFragment(RDPFragment.newInstance());
-                    return true;
-                case R.id.navigation_email:
-                    loadFragment(EmailFragment.newInstance());
-                    return true;
-                case R.id.navigation_option:
-                    loadFragment(OptionFragment.newInstance());
-                    return true;
-            }
-            return false;
-        }
-    };
-
-    private void loadFragment(Fragment fragment) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.middle_content, fragment);
-        ft.commit();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-    }
+        //tab layout on the bottom
+        mainTabLayout =  (TabLayout) findViewById(R.id.mainTabLayout);
 
+        //tabs
+        mainTabLayout.addTab(mainTabLayout.newTab().setText("VPN"));
+        mainTabLayout.addTab(mainTabLayout.newTab().setText("RDP"));
+        mainTabLayout.addTab(mainTabLayout.newTab().setText("FM"));
+        mainTabLayout.addTab(mainTabLayout.newTab().setText("Mail"));
+
+        //tab positioning
+        mainTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        //fragment manager
+        Fragment vpnFragment = new VPNFragment();
+
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrameLayout, vpnFragment).addToBackStack(null).commit();
+
+        //tab actions
+        mainTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                Fragment fragment = null;
+                switch (tab.getPosition()) {
+                    case 0:
+                        fragment = new VPNFragment();
+                        break;
+                    case 1:
+                        fragment = new RDPFragment();
+                        break;
+                    case 2:
+                        fragment = new FMFragment();
+                        break;
+                    case 3:
+                        fragment = new MailFragment();
+                        break;
+
+                }
+
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.mainFrameLayout,  fragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                ft.commit();
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        //list
+        // vpnRecyclerView= findViewById(R.id.VPNListRecyclerView);
+
+        //connection with adapter
+        // vpnRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // customAdapter = new CustomAdapter(this, vpnList);
+        // vpnRecyclerView.setAdapter(customAdapter);
+
+        //buttons
+
+}
 }

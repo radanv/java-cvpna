@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/middle_content"
+        android:id="@+id/mainFrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-    <ImageView
-        android:id="@+id/vpn_ads"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:layout_gravity="center"
-        android:background="@color/design_default_color_primary_dark"
-        android:contentDescription="@string/vpn_ads"
-        android:focusable="true"
-        android:paddingEnd="5dip"
-        android:paddingLeft="5dip"
-        android:paddingRight="5dip"
-        android:paddingStart="5dip" />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/mainTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/mainTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@android:color/darker_gray"
-        app:menu="@menu/bottom_navigation" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

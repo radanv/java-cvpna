@@ -3,6 +3,8 @@ package com.example.cvpna;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +12,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RDPFragment#newInstance} factory method to
+ * Use the {@link ListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RDPFragment extends Fragment {
+public class ListFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,12 @@ public class RDPFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public RDPFragment() {
+
+    VPN[] vpnList;
+    RecyclerView listRecyclerView;
+    CustomAdapter customAdapter;
+
+    public ListFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +41,11 @@ public class RDPFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RDPFragment.
+     * @return A new instance of fragment ListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RDPFragment newInstance(String param1, String param2) {
-        RDPFragment fragment = new RDPFragment();
+    public static ListFragment newInstance(String param1, String param2) {
+        ListFragment fragment = new ListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -58,7 +65,26 @@ public class RDPFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_r_d_p, container, false);
+
+        View view =  inflater.inflate(R.layout.fragment_list, container, false);
+
+        listRecyclerView = view.findViewById(R.id.vpnListRecyclerView);
+
+        vpnList = new VPN[]{
+                new VPN("VPN 1", "0.0.0.0"),
+                new VPN("VPN 2", "0.0.0.0"),
+                new VPN("VPN 3", "0.0.0.0"),
+                new VPN("VPN 4", "0.0.0.0"),
+        };
+
+        if (vpnList != null){
+            customAdapter = new CustomAdapter(view.getContext(), vpnList);
+            listRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+            listRecyclerView.setAdapter(customAdapter);
+        }
+
+
+
+        return view;
     }
 }
