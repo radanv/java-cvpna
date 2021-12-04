@@ -8,12 +8,19 @@
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/activity_login.xml" value="0.1956521739130435" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_connection.xml" value="0.4" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_email.xml" value="0.22760416666666666" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_f_m.xml" value="0.22760416666666666" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_filemanager.xml" value="0.22760416666666666" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_list.xml" value="0.1" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_mail.xml" value="0.22760416666666666" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_option.xml" value="0.10677083333333333" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_r_d_p.xml" value="0.21197916666666666" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_rdp.xml" value="0.22760416666666666" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/fragment_v_p_n.xml" value="0.1" />
         <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/vpn_item.xml" value="0.72" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/vpn_profile.xml" value="0.22760416666666666" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/layout/vpn_state.xml" value="0.22760416666666666" />
+        <entry key="..\:/2021projects/cvpna/app/src/main/res/menu/bottom_navigation.xml" value="0.536" />
       </map>
     </option>
   </component>
